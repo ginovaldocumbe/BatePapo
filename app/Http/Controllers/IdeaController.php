@@ -25,8 +25,13 @@ class IdeaController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Idea deleted successfully!');
     }
-
     public function edit(Idea $idea)
+    {
+        $editing = true;
+        return view('ideas.show', compact('idea', 'editing'));
+    }
+
+    public function update(Idea $idea)
     {
         request()->validate([
             'content' => 'required|min:3|max:240'
