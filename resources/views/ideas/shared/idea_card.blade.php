@@ -45,7 +45,7 @@
                 <button class="btn btn-primary btn-sm"> Post Comment </button>
             </div>
             <hr>
-            @include('named.comments_box')
+            @include('shared.comments_box')
         </div>
     </div>
 </div>
