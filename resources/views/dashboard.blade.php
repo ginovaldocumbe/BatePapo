@@ -7,13 +7,17 @@
             @include('shared.success_message')
             @include('ideas.shared.submit_idea')
             <hr>
-            @foreach ($ideas as $idea)
+            @forelse ($ideas as $idea)
                 <div class="mt-3">
                     @include('ideas.shared.idea_card')
                 </div>
-            @endforeach
+            @empty
+                <div class="alert alert-info text-center mt-3">
+                    <h5> No ideas found </h5>
+                </div>
+            @endforelse
             <div class="mt-3">
-                {{ $ideas->links() }}
+                {{ $ideas->withQueryString()->links() }}
             </div>
         </div>
         <div class="col-3">
