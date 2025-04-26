@@ -1,4 +1,6 @@
-<div>
+<div class="d-flex justify-content-between align-items-center align-items-center gap-2">
+    {{-- Display number of views --}}
+    {{-- Display number of likes --}}
     @auth
         @if (Auth::user()->likesIdea($idea))
             <form action="{{ route('ideas.unlike', $idea->id) }}" method="post">
@@ -21,7 +23,9 @@
             <span class="fas fa-heart  me-1"> </span> {{ $idea->likes_count }}
         </a>
     @endguest
+    {{-- Display number of comments --}}
+  
+        <span class="fas fa-comments"> </span> {{ $idea->comments_count }}
 
-
-
+    
 </div>

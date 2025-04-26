@@ -47,11 +47,10 @@
                 {{ $idea->content }}
             </p>
         @endif
-        <div class="d-flex justify-content-between mb-2">
+        <div class="d-flex align-items-center justify-content-between mb-2">
             @include('ideas.shared.like_button')
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock">
-
                     </span> {{ $idea->created_at->diffForHumans() }} </span>
             </div>
         </div>

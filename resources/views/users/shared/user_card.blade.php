@@ -40,7 +40,6 @@
                                 <button class="btn btn-primary btn-sm"> Follow </button>
                             </form>
                         @endif
-
                     </div>
                 @endif
 

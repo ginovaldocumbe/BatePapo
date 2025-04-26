@@ -25,6 +25,9 @@ class User extends Authenticatable
         'image'
     ];
 
+    // protected $with = ['ideas', 'comments', 'followers', 'followings'];
+    // protected $withCount = ['ideas', 'comments', 'followers', 'followings'];
+
     /**
      * The attributes that should be hidden for serialization.
      *
