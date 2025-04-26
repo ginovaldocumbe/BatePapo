@@ -12,7 +12,7 @@
             </div>
             <div>
                 @auth
-                    @if ($idea->user->id == auth()->user()->id)
+                    @can('idea.destroy', $idea)
                         <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
                             @csrf
                             @method('delete')
@@ -22,7 +22,7 @@
                                 X
                             </button>
                         </form>
-                    @endif
+                    @endcan
                 @endauth
             </div>
         </div>
@@ -47,7 +47,6 @@
                 {{ $idea->content }}
             </p>
         @endif
-
         <div class="d-flex justify-content-between mb-2">
             @include('ideas.shared.like_button')
             <div>

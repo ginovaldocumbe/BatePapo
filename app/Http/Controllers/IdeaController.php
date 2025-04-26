@@ -27,9 +27,7 @@ class IdeaController extends Controller
 
     public function destroy(Idea $idea)
     {
-        if ($idea->user_id !== auth()->id()) {
-            return redirect()->route('dashboard')->with('error', 'You are not authorized to delete this idea.');
-        }
+       $this->authorize('idea.destroy', $idea);
         $idea->delete();
 
         return redirect()->route('dashboard')->with('success', 'Idea deleted successfully!');
