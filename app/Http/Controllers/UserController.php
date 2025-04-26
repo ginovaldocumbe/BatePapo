@@ -29,7 +29,7 @@ class UserController extends Controller
         if (request('image')) {
             $validated['image'] = request()->file('image')->store('profile', 'public');
 
-            Storage::disk('public')->delete($user->image);
+            Storage::disk('public')->delete($user->image ?? ''); // Delete the old image if it exists
         }
         $user->update($validated);
 
