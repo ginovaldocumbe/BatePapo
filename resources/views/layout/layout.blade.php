@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Twitter Clone Bootstrap 5 Example</title>
+    <title>{{ config('app.name') }} | @yield('title')</title>
 
     <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     @vite('resources/css/app.css')
