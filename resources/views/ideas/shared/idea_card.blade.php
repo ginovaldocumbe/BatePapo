@@ -7,7 +7,7 @@
                     alt="{{ $idea->user->name }}">
                 <div>
                     <h5 class="card-title mb-0">
-                        <a href="#"> {{ $idea->user->name }}</a>
+                        <a href="{{ route('users.show', $idea->user->id) }}"> {{ $idea->user->name }}</a>
                     </h5>
                 </div>
             </div>

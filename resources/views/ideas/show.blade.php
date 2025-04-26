@@ -5,9 +5,9 @@
         @include('shared.left_sider')
         <div class="col-6">
             @include('shared.success_message')
-                <div class="mt-3">
-                    @include('ideas.shared.idea_card')
-                </div>
+            <div class="mt-3">
+                @include('ideas.shared.idea_card')
+            </div>
             <div class="mt-3">
             </div>
         </div>

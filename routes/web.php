@@ -32,7 +32,7 @@ Route::resource('ideas.comments', CommentController::class)->only(['store'])->mi
 Route::resource('users', UserController::class)->only(['show']);
 Route::resource('users', UserController::class)->only(['edit', 'update'])->middleware('auth');
 
-Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
+Route::get('profile', [UserController::class, 'show'])->middleware('auth')->name('profile');
 
 Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
 Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');
