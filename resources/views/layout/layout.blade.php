@@ -7,7 +7,7 @@
 
     <title>{{ config('app.name') }} | @yield('title')</title>
 
-    <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://bootswatch.com/5/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     @vite('resources/css/app.css')
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"

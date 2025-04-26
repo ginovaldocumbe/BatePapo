@@ -29,12 +29,12 @@
             </div>
             <div class="px-2 mt-4">
                 <h5 class="fs-5"> Bio : </h5>
-                <textarea name="bio" class="form-control mb-2" rows="3"></textarea>
+                <textarea name="bio" class="form-control mb-2" rows="3">{{ $user->bio }}</textarea>
                 @error('bio')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
                 <button type="submit" class="btn btn-primary btn-sm my-3"> Save </button>
-               @include('users.shared.user_stats')
+                @include('users.shared.user_stats')
                 @auth
                     @if (Auth::id() !== $user->id)
                         <div class="mt-3">
