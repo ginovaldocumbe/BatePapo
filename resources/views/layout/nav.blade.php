@@ -19,11 +19,21 @@
                     </li>
                 @endguest
                 @auth
+                    @if (Auth::user()->is_admin)
+                        <li class="nav-item">
+                            <a class="nav-link  {{ Route::is('admin.dashboard') ? 'active' : '' }}"
+                                href="{{ route('admin.dashboard') }}">Admin
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link  {{ Route::is('users.show') ||  Route::is('users.edit') ? 'active' : '' }}" href="{{ route('users.show', Auth::user()) }}">
-                            <img style="max-width:35px" class="me-2 avatar-sm rounded-image"
-                                src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->name }}">
-                            {{ Auth::user()->name }}</a>
+                        <a class="nav-link  {{ Route::is('users.show') || Route::is('users.edit') ? 'active' : '' }}"
+                            href="{{ route('users.show', Auth::user()) }}">
+
+                           {{ Auth::user()->name }}
+                          <img style="max-width:20px" class="me-2 avatar-sm rounded-image"
+                                src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->name }}"> 
+                        </a>
                     </li>
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
