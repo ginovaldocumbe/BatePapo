@@ -2,8 +2,7 @@
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img style="width:50px" class="me-2 avatar-sm rounded-image"
-                    src="{{ $idea->user->getImageUrl() }}"
+                <img style="width:50px" class="me-2 avatar-sm rounded-image" src="{{ $idea->user->getImageUrl() }}"
                     alt="{{ $idea->user->name }}">
                 <div>
                     <h5 class="card-title mb-0">
@@ -49,11 +48,8 @@
             </p>
         @endif
 
-        <div class="d-flex justify-content-between">
-            <div>
-                <a href="#" class="fw-light nav-link fs-6"> <span class="fas fa-heart me-1">
-                    </span> {{ $idea->likes }} </a>
-            </div>
+        <div class="d-flex justify-content-between mb-2">
+            @include('ideas.shared.like_button')
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock">
 
