@@ -48,3 +48,7 @@ Route::post('login', [AuthController::class, 'authenticate']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/feed', [FeedController::class])->middleware('auth')->name('feed');
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
