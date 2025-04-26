@@ -2,20 +2,15 @@
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed= {{ $user->name }}" alt=" {{ $user->name }}">
+                <img style="max-width: 100px" class="me-3 avatar-sm rounded-image" src="{{ $user->getImageUrl() }}"
+                    alt=" {{ $user->name }}">
                 <div>
-                    @if ($editing ?? false)
-                        <input type="text" name="name" class="form-control mb-2" value="{{ $user->name }}">
-                        @error('name')
-                            <div class="alert alert-danger mt-2">{{ $message }}</div>
-                        @enderror
-                    @else
-                        <h3 class="card-title mb-0">
-                            <a href="#"> {{ $user->name }}</a>
-                        </h3>
-                        <span class="fs-6 text-muted">@mario</span>
-                    @endif
+
+                    <h3 class="card-title mb-0">
+                        <a href="#"> {{ $user->name }}</a>
+                    </h3>
+                    <span class="fs-6 text-muted">@mario</span>
+
 
                 </div>
             </div>
@@ -27,18 +22,10 @@
         </div>
         <div class="px-2 mt-4">
             <h5 class="fs-5"> Bio : </h5>
-            @if ($editing ?? false)
-                <textarea name="bio" class="form-control mb-2" rows="3"></textarea>
-                @error('bio')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
-            @else
-                <p class="fs-6 fw-light">
-                    This book is a treatise on the theory of ethics, very popular during the
-                    Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes
-                    from a line in section 1.10.32.
-                </p>
-            @endif
+            <p class="fs-6 fw-light">
+                {{ $user->bio ? $user->bio : 'No bio available' }}
+            </p>
+
 
             <div class="d-flex justify-content-start">
                 <a href="#" class="fw-light nav-link fs-6 me-3"> <span class="fas fa-user me-1">

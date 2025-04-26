@@ -13,8 +13,8 @@
 <hr>
 @forelse ($idea->comments as $comment)
     <div class="d-flex align-items-start">
-        <img style="width:35px" class="me-2 avatar-sm rounded-circle"
-            src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{ $comment->user->name }}"
+        <img style="max-width:35px" class="me-2 avatar-sm rounded-image"
+            src="{{ $comment->user->getImageUrl() }}"
             alt="{{ $comment->user->name }}">
         <div class="w-100">
             <div class="d-flex justify-content-between">
