@@ -41,11 +41,15 @@ Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->m
 Route::post('users/{idea}/like', [IdeaLikeController::class, 'like'])->middleware('auth')->name('ideas.like');
 Route::post('users/{idea}/unlike', [IdeaLikeController::class, 'unlike'])->middleware('auth')->name('ideas.unlike');
 
-Route::get('register', [AuthController::class, 'register'])->name('register');
-Route::post('register', [AuthController::class, 'store']);
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('register', [AuthController::class, 'store']);
 
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('login', [AuthController::class, 'authenticate']);
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticate']);
+});
+
+
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
@@ -54,4 +58,4 @@ Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
 
-Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth','can:admin']);
+Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
