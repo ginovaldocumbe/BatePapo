@@ -8,6 +8,17 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
+                {{-- languages options en and pt --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ app()->getLocale() == 'pt' ? 'PT' : 'EN' }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('lang', ['lang' => 'en']) }}">EN</a></li>
+                        <li><a class="dropdown-item" href="{{ route('lang', ['lang' => 'pt']) }}">PT</a></li>
+                    </ul>
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link  {{ Route::is('login') ? 'active' : '' }}" aria-current="page"
@@ -30,9 +41,9 @@
                         <a class="nav-link  {{ Route::is('users.show') || Route::is('users.edit') ? 'active' : '' }}"
                             href="{{ route('users.show', Auth::user()) }}">
 
-                           {{ Auth::user()->name }}
-                          <img style="max-width:20px" class="me-2 avatar-sm rounded-image"
-                                src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->name }}"> 
+                            {{ Auth::user()->name }}
+                            <img style="max-width:20px" class="me-2 avatar-sm rounded-image"
+                                src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->name }}">
                         </a>
                     </li>
                     <li class="nav-item">
@@ -42,6 +53,7 @@
                         </form>
                     </li>
                 @endauth
+
 
 
             </ul>
