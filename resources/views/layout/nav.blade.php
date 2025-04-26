@@ -10,15 +10,20 @@
             <ul class="navbar-nav">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link  {{ Route::is('login') ? 'active' : '' }}" aria-current="page"
+                            href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link  {{ Route::is('register') ? 'active' : '' }}"
+                            href="{{ route('register') }}">Register</a>
                     </li>
                 @endguest
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.show', Auth::user()) }}">{{ Auth::user()->name }}</a>
+                        <a class="nav-link  {{ Route::is('users.show') ||  Route::is('users.edit') ? 'active' : '' }}" href="{{ route('users.show', Auth::user()) }}">
+                            <img style="max-width:35px" class="me-2 avatar-sm rounded-image"
+                                src="{{ Auth::user()->getImageUrl() }}" alt="{{ Auth::user()->name }}">
+                            {{ Auth::user()->name }}</a>
                     </li>
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
