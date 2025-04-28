@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\IdeaController as AdminIdeaController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowerController;
@@ -68,6 +69,6 @@ Route::get('/terms', function () {
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->as('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', AdminUserController::class)->only(['index', 'destroy']);
-    // Route::resource('ideas', IdeaController::class)->only(['index', 'destroy']);
+    Route::resource('ideas', AdminIdeaController::class)->only(['index', 'destroy']);
     // Route::resource('comments', CommentController::class)->only(['index', 'destroy']);
 });

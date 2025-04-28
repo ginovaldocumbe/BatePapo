@@ -8,6 +8,7 @@
             <div>
                 <h1 class=" ">Users</h1>
             </div>
+            @include('shared.success_message')
 
             <table class="table table-striped mt-3">
                 <thead class="table-primary ">

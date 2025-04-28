@@ -11,7 +11,13 @@
                     <a class="nav-link {{ Route::is('admin.users.index') ? 'text-white bg-primary' : '' }}"
                         href="{{ route('admin.users.index') }}">
                         <span>Users</span></a>
-          
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('admin.ideas.index') ? 'text-white bg-primary' : '' }}"
+                        href="{{ route('admin.ideas.index') }}">
+                        <span>Ideas</span></a>
+                </li>
+
             </ul>
         </div>
         <div class="card-footer text-center py-2">
