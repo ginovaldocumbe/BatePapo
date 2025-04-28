@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
 
-        $topUsers = Cache::remember('top_users', 60 * 3, function () {
+        $topUsers = Cache::remember('top_users', now()->addMinutes(5), function () {
             return User::withCount('ideas')
                 ->orderBy('ideas_count', 'DESC')
                 ->take(3)
