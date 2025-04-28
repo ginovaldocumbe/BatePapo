@@ -36,7 +36,10 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return $user->is($model);
+        // Only the user or admin can update their own profile
+
+
+        return $user->id === $model->id || $user->is_admin;
     }
 
     /**
