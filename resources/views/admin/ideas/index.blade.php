@@ -34,8 +34,8 @@
                                         {{-- Display user icon, and his name, can be click to user details --}}
                                         <a href="{{ route('users.show', $idea->user->id) }}"
                                             class="text-decoration-none d-flex gap-2 ">
-                                            <img src="{{ $idea->user->getImageUrl() }}" alt="User Image" class="rounded-circle"
-                                                width="20" height="20">
+                                            {{-- <img src="{{ $idea->user->getImageUrl() }}" alt="User Image" class="rounded-circle"
+                                                width="20" height="20"> --}}
                                             <span class="d-flex flex-nowrap"> {{ $idea->user->name }}</span>
 
                                         </a>
