@@ -17,6 +17,11 @@
                         href="{{ route('admin.ideas.index') }}">
                         <span>Ideas</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('admin.comments.index') ? 'text-white bg-primary' : '' }}"
+                        href="{{ route('admin.comments.index') }}">
+                        <span>Comments</span></a>
+                </li>
 
             </ul>
         </div>
