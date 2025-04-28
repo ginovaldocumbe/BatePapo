@@ -19,7 +19,7 @@ class FeedController extends Controller
         $ideas = Idea::whereIn('user_id', $followingIds)->latest();
 
         if (request('search')) {
-            $ideas =  $ideas->where('content', 'like', '%' . request('search') . '%');
+            $ideas =  $ideas->search(request('search', ''));
         }
 
         return view('dashboard', [
