@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@source "../views";
+
 .rounded-image {
     border-radius: 50%;
     width: 100%;
